@@ -19,3 +19,8 @@ tenBest <- read.csv("ten-best-picks.csv", header = TRUE, sep = ",")
 
 deployApp()
 
+
+
+WAS <- read.csv("was.csv", header = TRUE, sep = ",")
+WAS.sub <- subset(WAS, Pick > 2)
+WAS.sub3 <- subset(WAS, Player == "Rasheed Wallace")
