@@ -4,12 +4,12 @@ library(shiny)
 shinyUI(pageWithSidebar(
   
   # Application title
-  headerPanel("NBA franchise draft picks by actual/projected - expected WS: 1990-2009"),
+  headerPanel("1990-2009 NBA draft picks by actual/projected - expected WS"),
   
   # Sidebar with controls to select a dataset and specify the number
-  # of observations to view
+  
   sidebarPanel(
-    selectInput("dataset", "Choose a team:", 
+    selectInput("dataset", "Choose a team or list:", 
                 choices = c("tenBest", "WAS", "cars"))
   ),
   
