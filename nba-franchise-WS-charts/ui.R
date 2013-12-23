@@ -10,7 +10,7 @@ shinyUI(pageWithSidebar(
   
   sidebarPanel(
     selectInput("dataset", "Choose a team or list:", 
-                choices = c("tenBest", "WAS", "cars"))
+                choices = c("PHI", "WAS", "PHO"))
   ),
   
   # main panel

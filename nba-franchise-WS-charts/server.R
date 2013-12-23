@@ -2,7 +2,20 @@ library(shiny)
 library(datasets)
 
 tenBest <- read.csv("ten-best-picks.csv", header = TRUE, sep = ",")
-WAS <- read.csv("was.csv", header = TRUE, sep = ",")
+all <- read.csv("all-picks.csv", header = TRUE, sep = ",")
+WAS <- subset(all, Tm == "WAS/WSB")
+UTA <- subset(all, Tm == "UTA")
+TOR <- subset(all, Tm == "TOR")
+SEA-OKC <- subset(all, Tm == "SEA/OKC")
+SAS <- subset(all, Tm == "SAS")
+SAC <- subset(all, Tm == "SAC")
+POR <- subset(all, Tm == "POR")
+PHO <- subset(all, Tm == "PHO")
+PHI <- subset(all, Tm == "PHI")
+
+
+
+
 
 # Define server logic required to summarize and view the selected dataset
 shinyServer(function(input, output) {
@@ -10,9 +23,9 @@ shinyServer(function(input, output) {
   # Return the requested dataset
   datasetInput <- reactive({
     switch(input$dataset,
-           "tenBest" = tenBest,
+           "PHI" = PHI,
            "WAS" = WAS,
-           "cars" = cars)
+           "PHO" = PHO)
   })
   
   # Show the first "n" observations
