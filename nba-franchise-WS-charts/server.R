@@ -1,21 +1,38 @@
 library(shiny)
-library(datasets)
 
 tenBest <- read.csv("ten-best-picks.csv", header = TRUE, sep = ",")
 all <- read.csv("all-picks.csv", header = TRUE, sep = ",")
 WAS <- subset(all, Tm == "WAS/WSB")
 UTA <- subset(all, Tm == "UTA")
 TOR <- subset(all, Tm == "TOR")
-SEA-OKC <- subset(all, Tm == "SEA/OKC")
+SEAandOKC <- subset(all, Tm == "SEA/OKC")
 SAS <- subset(all, Tm == "SAS")
 SAC <- subset(all, Tm == "SAC")
 POR <- subset(all, Tm == "POR")
 PHO <- subset(all, Tm == "PHO")
 PHI <- subset(all, Tm == "PHI")
-
-
-
-
+ORL <- subset(all, Tm == "ORL")
+NYK <- subset(all, Tm == "NYK")
+NOH <- subset(all, Tm == "NOH")
+NJN <- subset(all, Tm == "NJN")
+MIN <- subset(all, Tm == "MIN")
+MIL <- subset(all, Tm == "MIL")
+MIA <- subset(all, Tm == "MIA")
+MEMandVAN <- subset(all, Tm == "MEM/VAN")
+LAL <- subset(all, Tm == "LAL")
+LAC <- subset(all, Tm == "LAC")
+IND <- subset(all, Tm == "IND")
+HOU <- subset(all, Tm == "HOU")
+GSW <- subset(all, Tm == "GSW")
+DET <- subset(all, Tm == "DET")
+DEN <- subset(all, Tm == "DEN")
+DAL <- subset(all, Tm == "DAL")
+CLE <- subset(all, Tm == "CLE")
+CHI <- subset(all, Tm == "CHI")
+CHHandNOK <- subset(all, Tm == "CHH/NOK")
+CHA <- subset(all, Tm == "CHA")
+BOS <- subset(all, Tm == "BOS")
+ATL <- subset(all, Tm == "ATL")
 
 # Define server logic required to summarize and view the selected dataset
 shinyServer(function(input, output) {
@@ -23,9 +40,32 @@ shinyServer(function(input, output) {
   # Return the requested dataset
   datasetInput <- reactive({
     switch(input$dataset,
+           "ATL" = ATL,
+           "BOS" = BOS,
+           "CHA" = CHA,
+           "CHH/NOK" = CHHandNOK,
+           "CHI" = PHI,
+           "WAS" = WAS,
            "PHI" = PHI,
            "WAS" = WAS,
-           "PHO" = PHO)
+           "PHI" = PHI,
+           "WAS" = WAS,
+           "PHI" = PHI,
+           "WAS" = WAS,
+           "PHI" = PHI,
+           "WAS" = WAS,
+           "PHI" = PHI,
+           "WAS" = WAS,
+           "PHI" = PHI,
+           "WAS" = WAS,
+           "PHI" = PHI,
+           "WAS" = WAS,
+           "PHI" = PHI,
+           "WAS" = WAS,
+           "PHI" = PHI,
+           "WAS" = WAS,
+           "PHO" = PHO
+           )
   })
   
   # Show the first "n" observations
