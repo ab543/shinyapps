@@ -15,7 +15,7 @@ shinyUI(pageWithSidebar(
   
   # main panel
   mainPanel(
-    
+    h3(textOutput("dataset")), 
     tableOutput("view")
     
   )

@@ -20,5 +20,9 @@ shinyServer(function(input, output) {
     head(datasetInput(), n = 90)
   })
   
+  output$dataset <- renderText({
+    input$dataset
+  })
+  
   
 })
