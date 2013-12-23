@@ -1,7 +1,10 @@
 library(shiny)
 
-tenBest <- read.csv("ten-best-picks.csv", header = TRUE, sep = ",")
+fiftyBest <- read.csv("fifty-best.csv", header = TRUE, sep = ",")
+fiftyWorst <- read.csv("fifty-worst.csv", header = TRUE, sep = ",")
+
 all <- read.csv("all-picks.csv", header = TRUE, sep = ",")
+
 WAS <- subset(all, Tm == "WAS/WSB")
 UTA <- subset(all, Tm == "UTA")
 TOR <- subset(all, Tm == "TOR")
@@ -40,31 +43,38 @@ shinyServer(function(input, output) {
   # Return the requested dataset
   datasetInput <- reactive({
     switch(input$dataset,
+           "50 best picks" = fiftyBest,
+           "50 worst picks" = fiftyWorst,
            "ATL" = ATL,
            "BOS" = BOS,
            "CHA" = CHA,
            "CHH/NOK" = CHHandNOK,
-           "CHI" = PHI,
-           "WAS" = WAS,
+           "CHI" = CHI,
+           "CLE" = CLE,
+           "DAL" = DAL,
+           "DEN" = DEN,
+           "DET" = DET,
+           "GSW" = GSW,
+           "HOU" = HOU,
+           "IND" = IND,
+           "LAC" = LAC,
+           "LAL" = LAL,
+           "MEM/VAN" = MEMandVAN,
+           "MIA" = MIA,
+           "MIL" = MIL,
+           "MIN" = MIN,
+           "NJN" = NJN,
+           "NOH" = NOH,
+           "NYK" = NYK,
            "PHI" = PHI,
-           "WAS" = WAS,
-           "PHI" = PHI,
-           "WAS" = WAS,
-           "PHI" = PHI,
-           "WAS" = WAS,
-           "PHI" = PHI,
-           "WAS" = WAS,
-           "PHI" = PHI,
-           "WAS" = WAS,
-           "PHI" = PHI,
-           "WAS" = WAS,
-           "PHI" = PHI,
-           "WAS" = WAS,
-           "PHI" = PHI,
-           "WAS" = WAS,
-           "PHI" = PHI,
-           "WAS" = WAS,
-           "PHO" = PHO
+           "PHO" = PHO,
+           "POR" = POR,
+           "SAC" = SAC,
+           "SAS" = SAS,
+           "SEA/OKC" = SEAandOKC,
+           "TOR" = TOR,
+           "UTA" = UTA,
+           "WAS" = WAS
            )
   })
   
