@@ -2,6 +2,7 @@ library(shiny)
 library(datasets)
 
 tenBest <- read.csv("ten-best-picks.csv", header = TRUE, sep = ",")
+WAS <- read.csv("was.csv", header = TRUE, sep = ",")
 
 # Define server logic required to summarize and view the selected dataset
 shinyServer(function(input, output) {
@@ -10,7 +11,7 @@ shinyServer(function(input, output) {
   datasetInput <- reactive({
     switch(input$dataset,
            "tenBest" = tenBest,
-           "pressure" = pressure,
+           "WAS" = WAS,
            "cars" = cars)
   })
   
