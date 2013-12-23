@@ -19,6 +19,5 @@ shinyUI(pageWithSidebar(
     p("Sorted by WS Delta descending"), 
     p(a("You can read the full post about this data set here", href="http://www.joejansen.co/blog/2013/12/15/which-nba-franchise-drafted-best-from-1990-2009", target="_blank")),
     tableOutput("view")
-    
   )
 ))
